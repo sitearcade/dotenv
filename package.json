@@ -1,0 +1,52 @@
+{
+  "name": "@sitearcade/dotenv",
+  "version": "0.0.0",
+  "description": "SiteArcade's ultrapowered dotenv + babel extension.",
+  "license": "MIT",
+  "homepage": "https://sitearcade.com",
+  "repository": "github:sitearcade/dotenv",
+  "bugs": "https://github.com/sitearcade/dotenv/issues",
+  "author": {
+    "name": "Mike Stop Continues",
+    "email": "mike@sitearcade.com",
+    "url": "https://sitearcade.com"
+  },
+  "main": "index.js",
+  "-scripts": {
+    "postpublish": "git push origin --all; git push origin --tags",
+    "postversion": "npm publish",
+    "preversion": "npm test",
+    "test": "echo 'Seems fine...'"
+  },
+  "dependencies": {
+    "dotenv": "8.2.0",
+    "dotenv-expand": "5.1.0",
+    "find-config": "^1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.11.6",
+    "@sitearcade/eslint-config-arcade": "0.1.3",
+    "babel-eslint": "11.0.0-beta.2",
+    "eslint": "7.9.0",
+    "eslint-import-resolver-lerna": "1.1.0",
+    "eslint-plugin-babel": "5.3.1",
+    "eslint-plugin-better-styled-components": "1.1.2",
+    "eslint-plugin-eslint-comments": "3.2.0",
+    "eslint-plugin-fp": "2.3.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jest": "24.0.2",
+    "eslint-plugin-jest-formatting": "2.0.0",
+    "eslint-plugin-jsx-a11y": "6.3.1",
+    "eslint-plugin-lodash": "7.1.0",
+    "eslint-plugin-optimize-regex": "1.2.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-ramda": "2.5.1",
+    "eslint-plugin-react": "7.20.6",
+    "eslint-plugin-react-hooks": "4.1.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@sitearcade/eslint-config-arcade"
+    ]
+  }
+}
