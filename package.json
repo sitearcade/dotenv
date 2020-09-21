@@ -1,6 +1,6 @@
 {
   "name": "@sitearcade/dotenv",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "SiteArcade's ultrapowered dotenv + babel extension.",
   "license": "MIT",
   "homepage": "https://sitearcade.com",
