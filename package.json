@@ -1,7 +1,7 @@
 {
   "name": "@sitearcade/dotenv",
   "version": "0.0.1",
-  "description": "SiteArcade's ultrapowered dotenv + babel extension.",
+  "description": "SiteArcade's ultra-powered dotenv + babel extension.",
   "license": "MIT",
   "homepage": "https://sitearcade.com",
   "repository": "github:sitearcade/dotenv",
@@ -12,7 +12,7 @@
     "url": "https://sitearcade.com"
   },
   "main": "index.js",
-  "-scripts": {
+  "scripts": {
     "postpublish": "git push origin --all; git push origin --tags",
     "postversion": "npm publish",
     "preversion": "npm test",
