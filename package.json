@@ -11,20 +11,38 @@
     "email": "mike@sitearcade.com",
     "url": "https://www.sitearcade.com"
   },
-  "main": "index.js",
+  "sideEffects": false,
+  "source": "src/*.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.module.js",
+  "esmodule": "./dist/index.modern.js",
+  "exports": {
+    ".": "./dist/index.modern.js",
+    "./babel": "./dist/babel.modern.js",
+    "./config": "./dist/config.modern.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "postpublish": "git push origin --all; git push origin --tags",
+    "start": "microbundle watch --no-compress -f cjs,esm,modern --jsx React.createElement --jsxImportSource react",
+    "build": "microbundle --no-compress -f cjs,esm,modern --jsx React.createElement --jsxImportSource react",
+    "clean": "rm -rf dist",
+    "test": "NODE_ENV=testing jest --passWithNoTests --coverage",
+    "test:ci": "NODE_ENV=testing jest --passWithNoTests --ci",
+    "test:watch": "NODE_ENV=testing jest --passWithNoTests --coverage --watch",
+    "preversion": "npm run build && npm test",
     "postversion": "npm publish --access public",
-    "preversion": "npm test",
-    "test": "echo 'Seems fine...'"
+    "prepublishOnly": "npm run clean && npm run build",
+    "postpublish": "git push origin --all; git push origin --tags"
   },
   "dependencies": {
-    "dotenv": "8.2.0",
-    "dotenv-expand": "5.1.0",
-    "find-config": "^1"
+    "dotenv": "^8.2.0",
+    "dotenv-expand": "^5.1.0"
   },
   "devDependencies": {
-    "@sitearcade/eslint-config": "0.3.0"
+    "@sitearcade/eslint-config": "1.1.8",
+    "microbundle": "0.13.0"
   },
   "eslintConfig": {
     "extends": [

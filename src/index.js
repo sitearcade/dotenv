@@ -33,14 +33,20 @@ function config({
     envPath(nodeEnv),
     envPath('local'),
     envPath(),
-  ].reduce((acc, loc) => (
+  ].reduce((acc, loc) => {
     // eslint-disable-next-line no-sync
-    loc && fs.existsSync(loc) ? {...readEnv(loc), ...acc} : acc
-  ), {});
+    if (loc && fs.existsSync(loc)) {
+      return Object.assign(readEnv(loc), acc);
+    }
 
-  const stringified = Object.keys(raw).reduce((acc, key) => ({
-    ...acc, [key]: JSON.stringify(raw[key]),
-  }), {});
+    return acc;
+  }, {});
+
+  const stringified = Object.keys(raw).reduce((acc, key) => {
+    acc[key] = JSON.stringify(raw[key]);
+
+    return acc;
+  }, {});
 
   return {
     raw,

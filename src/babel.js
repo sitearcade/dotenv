@@ -1,6 +1,6 @@
 // import
 
-const {raw: dotenv} = require('./lerna');
+const {raw: dotenv} = require('./config');
 
 // fns
 
