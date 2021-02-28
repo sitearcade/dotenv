@@ -18,8 +18,7 @@
   "esmodule": "./dist/index.modern.js",
   "exports": {
     ".": "./dist/index.modern.js",
-    "./babel": "./dist/babel.modern.js",
-    "./config": "./dist/config.modern.js"
+    "./*": "./dist/*.modern.js"
   },
   "files": [
     "dist"
