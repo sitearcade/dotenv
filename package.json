@@ -17,16 +17,9 @@
   "module": "./dist/index.module.js",
   "esmodule": "./dist/index.modern.js",
   "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "default": "./dist/index.modern.js",
-      "import": "./dist/index.module.js"
-    },
-    "./*": {
-      "require": "./dist/*.js",
-      "default": "./dist/*.modern.js",
-      "import": "./dist/*.module.js"
-    }
+    ".": "./dist/index.js",
+    "./babel": "./dist/babel.js",
+    "./config": "./dist/config.js"
   },
   "files": [
     "dist"
