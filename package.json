@@ -12,17 +12,18 @@
     "url": "https://www.sitearcade.com"
   },
   "sideEffects": false,
-  "source": "src/*.js",
+  "source": "src/*.ts",
+  "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "module": "./dist/index.module.js",
-  "esmodule": "./dist/index.modern.js",
   "exports": {
-    ".": "./dist/index.js",
-    "./babel": "./dist/babel.js",
-    "./config": "./dist/config.js"
+    "./": "./dist/index.modern.js",
+    "./config": "./dist/config.modern.js",
+    "./babel": "./dist/babel.modern.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "**/package.json"
   ],
   "scripts": {
     "start": "microbundle watch --no-compress -f cjs,esm,modern --jsx React.createElement --jsxImportSource react",
@@ -41,8 +42,9 @@
     "dotenv-expand": "^5.1.0"
   },
   "devDependencies": {
-    "@sitearcade/eslint-config": "1.1.8",
-    "@sitearcade/jest-preset": "2.1.1",
+    "@babel/types": "7.13.17",
+    "@sitearcade/eslint-config": "1.5.2",
+    "@sitearcade/jest-preset": "2.3.9",
     "jest": "26.6.3",
     "microbundle": "0.13.0"
   },

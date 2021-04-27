@@ -1,0 +1,5 @@
+{
+  "types": "../dist/config.d.ts",
+  "main": "../dist/config.js",
+  "module": "../dist/config.module.js"
+}

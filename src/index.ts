@@ -1,25 +1,25 @@
 // import
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-const dotenv = require('dotenv');
-const expand = require('dotenv-expand');
+import dotenv from 'dotenv';
+import expand from 'dotenv-expand';
 
 // fns
 
-const getEnvPath = (base) => (...env) => (
+const getEnvPath = (base: string) => (...env: string[]) => (
   env.every(Boolean) && [base, ...env].join('.')
 );
 
-const readEnv = (loc) =>
+const readEnv = (loc: string) =>
   expand(dotenv.config({path: loc})).parsed;
 
 // export
 
-function config({
+export function config({
   nodeEnv = process.env.NODE_ENV || 'development',
-  buildTarget = process.env.BUILD_TARGET,
+  buildTarget = process.env.BUILD_TARGET as string,
   envDir = './',
 } = {}) {
   const envPath = getEnvPath(path.resolve(process.cwd(), envDir, '.env'));
@@ -33,7 +33,7 @@ function config({
     envPath(nodeEnv),
     envPath('local'),
     envPath(),
-  ].reduce((acc, loc) => {
+  ].reduce<Record<string, string>>((acc, loc) => {
     // eslint-disable-next-line no-sync
     if (loc && fs.existsSync(loc)) {
       return Object.assign(readEnv(loc), acc);
@@ -42,7 +42,7 @@ function config({
     return acc;
   }, {});
 
-  const stringified = Object.keys(raw).reduce((acc, key) => {
+  const stringified = Object.keys(raw).reduce<Record<string, string>>((acc, key) => {
     acc[key] = JSON.stringify(raw[key]);
 
     return acc;
@@ -54,5 +54,3 @@ function config({
     webpack: {'process.env': stringified},
   };
 }
-
-module.exports = {config};
