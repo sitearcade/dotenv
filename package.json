@@ -18,8 +18,8 @@
   "module": "./dist/index.module.js",
   "exports": {
     ".": "./dist/index.js",
-    "./tools": "./dist/tools.js",
-    "./jest-preset": "./dist/index.js"
+    "./config": "./dist/config.js",
+    "./babel": "./dist/babel.js"
   },
   "files": [
     "dist",
