@@ -18,16 +18,16 @@
   "module": "./dist/index.module.js",
   "exports": {
     ".": "./dist/index.js",
-    "./config": "./dist/config.js",
-    "./babel": "./dist/babel.js"
+    "./tools": "./dist/tools.js",
+    "./jest-preset": "./dist/index.js"
   },
   "files": [
     "dist",
     "**/package.json"
   ],
   "scripts": {
-    "start": "microbundle watch --no-compress -f cjs,esm --jsx React.createElement --jsxImportSource react",
-    "build": "microbundle --no-compress -f cjs,esm --jsx React.createElement --jsxImportSource react",
+    "start": "microbundle watch --no-compress -f cjs,esm",
+    "build": "microbundle --no-compress -f cjs,esm",
     "clean": "rm -rf dist",
     "test": "NODE_ENV=test jest --passWithNoTests --coverage",
     "test:ci": "NODE_ENV=test jest --passWithNoTests --ci",
