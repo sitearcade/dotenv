@@ -17,7 +17,7 @@
   "main": "./dist/index.js",
   "module": "./dist/index.module.js",
   "exports": {
-    "./": "./dist/index.modern.js",
+    ".": "./dist/index.modern.js",
     "./config": "./dist/config.modern.js",
     "./babel": "./dist/babel.modern.js"
   },
