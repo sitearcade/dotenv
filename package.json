@@ -11,24 +11,23 @@
     "email": "mike@sitearcade.com",
     "url": "https://www.sitearcade.com"
   },
-  "type": "module",
   "sideEffects": false,
   "source": "src/*.ts",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "module": "./dist/index.module.js",
   "exports": {
-    ".": "./dist/index.modern.js",
-    "./config": "./dist/config.modern.js",
-    "./babel": "./dist/babel.modern.js"
+    ".": "./dist/index.js",
+    "./config": "./dist/config.js",
+    "./babel": "./dist/babel.js"
   },
   "files": [
     "dist",
     "**/package.json"
   ],
   "scripts": {
-    "start": "microbundle watch --no-compress -f cjs,esm,modern --jsx React.createElement --jsxImportSource react",
-    "build": "microbundle --no-compress -f cjs,esm,modern --jsx React.createElement --jsxImportSource react",
+    "start": "microbundle watch --no-compress -f cjs,esm --jsx React.createElement --jsxImportSource react",
+    "build": "microbundle --no-compress -f cjs,esm --jsx React.createElement --jsxImportSource react",
     "clean": "rm -rf dist",
     "test": "NODE_ENV=test jest --passWithNoTests --coverage",
     "test:ci": "NODE_ENV=test jest --passWithNoTests --ci",
